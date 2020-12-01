@@ -1,6 +1,6 @@
 <?php
 
-function resolve_path($path)
+function resolve_path(string $path)
 {
     $current = $_SERVER["PATH_INFO"] ?? "/";
 
@@ -13,7 +13,7 @@ function resolve_path($path)
     return false;
 }
 
-function render($template, $content)
+function render(string $template, string $content, array $variables = [])
 {
     $content = __DIR__ . "/templates/" . $template . "/" . $content . ".tpl.php";
     return require __DIR__ . "/templates/default.tpl.php";
