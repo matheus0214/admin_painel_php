@@ -1,7 +1,7 @@
 <?php
 
-if($path === "/") {
-    echo "site";
+if(resolve_path("/?(home)/?(.*)")) {
+    render("site", "home");
 } else {
-    die("Page does not found");
+    echo "Page does not found";
 }

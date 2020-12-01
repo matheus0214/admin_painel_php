@@ -1,7 +1,5 @@
 <?php
 
-if($path === "/admin") {
-    echo "Admin site";
-} else {
-    die("Page does not found");
+if(resolve_path("/admin/?(.*)")) {
+    render("admin", "home");
 }
