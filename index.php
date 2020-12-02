@@ -1,23 +1,8 @@
 <?php
 
-function resolve_path(string $path)
-{
-    $current = $_SERVER["PATH_INFO"] ?? "/";
-
-    $regexp = "/^" . str_replace("/", "\/", $path) . "$/";
-
-    if (preg_match($regexp, $current)) {
-        return true;
-    }
-
-    return false;
-}
-
-function render(string $template, string $content, array $variables = [])
-{
-    $content = __DIR__ . "/templates/" . $template . "/" . $content . ".tpl.php";
-    return require __DIR__ . "/templates/default.tpl.php";
-}
+require __DIR__ . "/src/resolve_route.php";
+require __DIR__ . "/src/render.php";
+require __DIR__ . "/src/connection.php";
 
 if (resolve_path("/admin/?(.*)")) {
     require __DIR__ . "/admin/routes.php";
