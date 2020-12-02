@@ -8,7 +8,7 @@ $connection_db = new mysqli(
     "3306"
 );
 
-if ($connec->connect_errno) {
+if ($connection_db->connect_errno) {
     $connection_db->close();
-    die("Error to connect DB ($connec->connect_errno) $connec->connect_error");
+    die("Error to connect DB ($connection_db->connect_errno) $connection_db->connect_error");
 }
