@@ -1,11 +1,11 @@
 <?php
 
 $connection_db = new mysqli(
-    "localhost",
-    "root",
-    "",
-    "admin_php",
-    "3306"
+    DB_HOST,
+    DB_USERNAME,
+    DB_PASSWORD,
+    DB_NAME,
+    DB_PORT
 );
 
 if ($connection_db->connect_errno) {

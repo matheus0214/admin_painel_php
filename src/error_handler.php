@@ -6,6 +6,10 @@ function set_internal_server_error($errno, $errstr, $errfile, $errline)
     // echo $errstr . "<br />";
     // echo $errfile . "<br />";
     // echo $errline . "<br />";
+    http_response_code(500);
+    if (!DEBUG) {
+        exit;
+    }
 
     switch ($errno) {
         case E_USER_ERROR:
@@ -21,9 +25,11 @@ function set_internal_server_error($errno, $errstr, $errfile, $errline)
         case E_USER_NOTICE:
             echo "<strong>Notice</strong> [" . $errno . "] " . $errstr . "<br />";
             echo "<strong>File</strong> [" . $errfile . "] " . "<br />";
+            echo "<strong>File</strong> [" . $errfile . "] " . "<br />";
             break;
         default:
             echo "<strong>Unknow error type</strong> [" . $errno . "] " . $errstr . "<br />";
+            echo "<strong>File</strong> [" . $errfile . "] " . "<br />";
             echo "<strong>Line</strong> [" . $errline . "] " . "<br />";
             break;
     }

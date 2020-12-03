@@ -39,10 +39,10 @@
 <body>
     <nav>
         <li>
-            <a href="home">Home</a>
+            <a href="index.php/home">Home</a>
         </li>
         <li>
-            <a href="admin">Admin</a>
+            <a href="index.php/admin">Admin</a>
         </li>
     </nav>
     <div class="content">
