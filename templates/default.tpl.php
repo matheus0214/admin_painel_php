@@ -9,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <style>
-    <?php include 'css/style.css';
+    <style type="text/css">
+    <?php include "/css/style.css";
     ?>
     </style>
 </head>
@@ -18,13 +18,13 @@
 <body class="d-flex flex-column">
     <div class="header">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <a class="navbar-brand" href="./home">Painel Admin</a>
+            <a class="navbar-brand" href="home">Painel Admin</a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="./home">Home</a>
+                    <a class="nav-link" href="home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./admin">Admin</a>
+                    <a class="nav-link" href="admin">Admin</a>
                 </li>
             </ul>
         </nav>
@@ -65,6 +65,29 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    const links = [];
+    $("a").each(function() {
+        if ($(this).attr("href").replace(/\.\//, "") !== "") {
+            links.push($(this).attr("href").replace(/\.\//, ""));
+        }
+    });
+
+    $("a").click(function() {
+        const url = $(location).attr('href');
+        const origin = window.location.origin;
+        const pathname = window.location.pathname;
+        const link = $(this).attr("href").replace(/\.\//, "");
+
+        const find = pathname.split("/").find(item => links.includes(item));
+
+        if (find) {
+            const regexp = new RegExp(`${find}.*`);
+            $(this).prop("href", origin + pathname.replace(regexp, "") + link);
+        }
+    });
     </script>
 </body>
 

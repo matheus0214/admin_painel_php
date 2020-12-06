@@ -2,10 +2,10 @@
 
 function set_internal_server_error($errno, $errstr, $errfile, $errline)
 {
-    // echo $errno . "<br />";
-    // echo $errstr . "<br />";
-    // echo $errfile . "<br />";
-    // echo $errline . "<br />";
+    echo $errno . "<br />";
+    echo $errstr . "<br />";
+    echo $errfile . "<br />";
+    echo $errline . "<br />";
     http_response_code(500);
     if (!DEBUG) {
         exit;
