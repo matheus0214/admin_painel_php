@@ -3,15 +3,17 @@
 if (resolve_path("/admin")) {
     render("admin", "home");
 } else if (resolve_path("/admin/pages")) {
-    echo "olasd";
+    render("admin/pages", "index");
 } else if (resolve_path("/admin/pages/create")) {
-    render("admin", "home");
+    render("admin/pages", "create");
 } else if (resolve_path("/admin/pages/(\d)+")) {
-    render("admin", "home");
+    render("admin/pages", "index");
 } else if (resolve_path("/admin/pages/(\d)+/edit")) {
-    render("admin", "home");
+    render("admin/pages", "edit");
 } else if (resolve_path("/admin/pages/(\d)+/delete")) {
-    render("admin", "home");
+    $regexp = "/\/admin\/pages.*/";
+
+    header("location: " . preg_replace($regexp, "", $_SERVER["REDIRECT_URL"]) . "/admin/pages");
 } else {
     http_response_code(404);
 }

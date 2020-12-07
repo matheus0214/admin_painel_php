@@ -75,6 +75,10 @@
         }
     });
 
+    $(document).ready(function() {
+        console.log("ready!");
+    });
+
     $("a").click(function() {
         const url = $(location).attr('href');
         const origin = window.location.origin;
