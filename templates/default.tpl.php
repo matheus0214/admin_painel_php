@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style type="text/css">
-    <?php include "/css/style.css";
+    <?php include __DIR__ . "/../public/css/style.css";
     ?>
     </style>
 </head>
@@ -67,7 +67,11 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/jquery.tinymce.min.js" referrerpolicy="origin"></script>
+
     <script>
+    $('textarea#tiny').tinymce({});
     const links = [];
     $("a").each(function() {
         if ($(this).attr("href").replace(/\.\//, "") !== "") {
@@ -89,6 +93,7 @@
 
         if (find) {
             const regexp = new RegExp(`${find}.*`);
+            console.log(origin + pathname.replace(regexp, "") + link);
             $(this).prop("href", origin + pathname.replace(regexp, "") + link);
         }
     });

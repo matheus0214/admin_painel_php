@@ -7,7 +7,7 @@ if (resolve_path("/admin")) {
 } else if (resolve_path("/admin/pages/create")) {
     render("admin/pages", "create");
 } else if (resolve_path("/admin/pages/(\d)+")) {
-    render("admin/pages", "index");
+    render("admin/pages", "show");
 } else if (resolve_path("/admin/pages/(\d)+/edit")) {
     render("admin/pages", "edit");
 } else if (resolve_path("/admin/pages/(\d)+/delete")) {
