@@ -17,7 +17,8 @@
     </div>
 
     <div class="form-group">
-        <textarea id="tiny" required name="body"></textarea>
+        <label for="pagesBody"></label>
+        <!-- <textarea id="tiny" required name="body" class="form-control" id="pagesBody"></textarea> -->
     </div>
 
     <button type="submit" class="btn btn-primary">

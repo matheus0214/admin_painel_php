@@ -6,8 +6,8 @@ function resolve_path(string $path)
 
     $regexp = "/" . str_replace("/", "\/", $path) . "\/?$/";
 
-    if (preg_match($regexp, $current)) {
-        return true;
+    if (preg_match($regexp, $current, $matches)) {
+        return $matches;
     }
 
     return false;

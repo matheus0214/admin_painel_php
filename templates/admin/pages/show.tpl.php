@@ -4,16 +4,20 @@
     <div class="col-3">
         <dl class="row">
             <dt class="col-sm-6">Título</dt>
-            <dd class="col-sm-6">Página inicial</dd>
+            <dd class="col-sm-6">
+                <?php echo $variables["page"]["title"] ?? "" ?>
+            </dd>
 
             <dt class="col-sm-6">URL</dt>
-            <dd class="col-sm-6">/ - <a href="/" target="_blank">Abrir</a></dd>
+            <dd class="col-sm-6">/ -
+                <a href=<?php echo $variables["page"]["url"] ?? "" ?> target="_blank">Abrir</a>
+            </dd>
 
             <dt class="col-sm-6">Criado em</dt>
-            <dd class="col-sm-6">2020-01-01</dd>
+            <dd class="col-sm-6"><?php echo $variables["page"]["created_at"] ?? "" ?></dd>
 
             <dt class="col-sm-6">Atualizado em</dt>
-            <dd class="col-sm-6">2020-01-01</dd>
+            <dd class="col-sm-6"><?php echo $variables["page"]["updated_at"] ?? "" ?></dd>
         </dl>
     </div>
     <div class="col bg-light">
