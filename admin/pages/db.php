@@ -56,7 +56,25 @@ $pages_create = function () use ($connection_db) {
     flash("Criou com sucesso", "success");
 };
 
-$pages_edit = function ($id) {
+$pages_edit = function ($id) use ($connection_db) {
+
+    $data = pages_get_date("admin/pages/" . $id . "/edit");
+
+    $stmt = $connection_db->prepare(
+        "
+            UPDATE `pages`
+                SET
+                    `title` = ?,
+                    `url`   = ?,
+                    `body`  = ?
+                WHERE
+                    `pages`.`id` = ?
+        "
+    );
+
+    $stmt->bind_param("sssi", $data["title"], $data["url"], $data["body"], $id);
+    $stmt->execute();
+
     flash("Atualizou com sucesso", "success");
 };
 

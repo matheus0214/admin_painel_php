@@ -27,14 +27,16 @@ if (resolve_path("/admin/pages")) {
     render("admin/pages", "show", ["page" => $page]);
 
 } else if ($params = resolve_path("/admin/pages/(\d+)/edit")) {
+    $page = $pages_one($params[1]);
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $pages_edit("");
+        $pages_edit($params[1]);
         $regexp = "/\/admin\/pages.*/";
 
         return header("location: " . preg_replace($regexp, "", $_SERVER["REDIRECT_URL"]) . "/admin/pages");
     }
 
-    render("admin/pages", "edit");
+    render("admin/pages", "edit", ["page" => $page]);
 
 } else if (resolve_path("/admin/pages/(\d+)/delete")) {
     $regexp = "/\/admin\/pages.*/";

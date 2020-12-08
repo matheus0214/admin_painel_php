@@ -21,16 +21,15 @@
         </dl>
     </div>
     <div class="col bg-light">
-        <h3>Página inicial</h3>
         <div><?php echo $variables["page"]["body"] ?? "" ?></div>
     </div>
 </div>
 
 <p>
-    <a href="admin/pages/1/edit" class="btn btn-primary">
+    <a href="admin/pages/<?php echo $variables["page"]["id"] ?>/edit" class="btn btn-primary">
         Editar
     </a>
-    <a href="admin/pages/1/delete" class="btn btn-danger">
+    <a href="admin/pages/<?php echo $variables["page"]["id"] ?>/delete" class="btn btn-danger">
         Deletar
     </a>
 </p>

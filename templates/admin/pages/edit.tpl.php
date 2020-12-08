@@ -3,7 +3,8 @@
 <form action="" method="POST">
     <div class="form-group">
         <label for="pagesTitle">Título</label>
-        <input type="text" required class="form-control" name="title" id="pagesTitle">
+        <input value="<?php echo $variables["page"]["title"] ?? "" ?>" type="text" required class="form-control"
+            name="title" id="pagesTitle">
     </div>
 
     <div class="form-group">
@@ -12,12 +13,15 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">/</span>
             </div>
-            <input type="text" required class="form-control" name="url" id="pagesUrl">
+            <input value="<?php echo $variables["page"]["url"] ?? "" ?>" type="text" required class="form-control"
+                name="url" id="pagesUrl">
         </div>
     </div>
 
     <div class="form-group">
-        <textarea id="tiny" required name="body"></textarea>
+        <textarea required name="body">
+        <?php echo $variables["page"]["body"] ?? "" ?>
+        </textarea>
     </div>
 
     <button type="submit" class="btn btn-primary">
