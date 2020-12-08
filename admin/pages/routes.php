@@ -38,10 +38,10 @@ if (resolve_path("/admin/pages")) {
 
     render("admin/pages", "edit", ["page" => $page]);
 
-} else if (resolve_path("/admin/pages/(\d+)/delete")) {
+} else if ($params = resolve_path("/admin/pages/(\d+)/delete")) {
     $regexp = "/\/admin\/pages.*/";
 
-    $pages_delete("");
+    $pages_delete($params[1]);
 
     return header("location: " . preg_replace($regexp, "", $_SERVER["REDIRECT_URL"]) . "/admin/pages");
 }

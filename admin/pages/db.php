@@ -78,6 +78,15 @@ $pages_edit = function ($id) use ($connection_db) {
     flash("Atualizou com sucesso", "success");
 };
 
-$pages_delete = function ($id) {
+$pages_delete = function ($id) use ($connection_db) {
+    $stmt = $connection_db->prepare(
+        "
+            DELETE FROM `pages` WHERE `pages`.`id` = ?
+        "
+    );
+
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+
     flash("Removeu com sucesso", "success");
 };
