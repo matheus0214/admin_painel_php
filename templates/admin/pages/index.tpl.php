@@ -9,17 +9,19 @@
         </tr>
     </thead>
     <tbody>
+        <?php foreach ($variables["pages"] as $page): ?>
         <tr>
-            <td>1</td>
+            <td><?php echo $page["id"] ?? "" ?></td>
             <td>
-                <a href="admin/pages/1">Página inicial</a>
+                <a href="admin/pages/1"><?php echo $page["title"] ?? "" ?></a>
             </td>
             <td class="text-right">
-                <a href="admin/pages/1" class="brn btn-primary btn-sm">
+                <a href="admin/pages/<?php echo $page['id'] ?>" class="brn btn-primary btn-sm">
                     Ver
                 </a>
             </td>
         </tr>
+        <?php endforeach?>
     </tbody>
 </table>
 

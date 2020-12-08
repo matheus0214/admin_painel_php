@@ -6,6 +6,7 @@ if (resolve_path("/admin/pages")) {
 
     $pages = $pages_all();
     flash();
+
     render("admin/pages", "index", ["pages" => $pages]);
 
 } else if (resolve_path("/admin/pages/create")) {
@@ -41,14 +42,9 @@ if (resolve_path("/admin/pages")) {
     render("admin/pages", "edit");
 
 } else if (resolve_path("/admin/pages/(\d+)/delete")) {
-
     $regexp = "/\/admin\/pages.*/";
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $pages_delete("");
-
-        return header("location: " . preg_replace($regexp, "", $_SERVER["REDIRECT_URL"]) . "/admin/pages");
-    }
+    $pages_delete("");
 
     return header("location: " . preg_replace($regexp, "", $_SERVER["REDIRECT_URL"]) . "/admin/pages");
 }
