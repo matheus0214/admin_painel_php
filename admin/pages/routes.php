@@ -24,12 +24,7 @@ if (resolve_path("/admin/pages")) {
 
     $page = $pages_one($params[1]);
 
-    render("admin/pages", "show", ["page" => [
-        "title" => "Is title",
-        "url" => "this is my url",
-        "created_at" => "2020-12-01",
-        "updated_at" => "2020-12-01",
-    ]]);
+    render("admin/pages", "show", ["page" => $page]);
 
 } else if ($params = resolve_path("/admin/pages/(\d+)/edit")) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {

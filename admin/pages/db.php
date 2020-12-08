@@ -25,8 +25,18 @@ $pages_all = function () use ($connection_db) {
     return $result->fetch_all(MYSQLI_ASSOC);
 };
 
-$pages_one = function ($id) {
+$pages_one = function ($id) use ($connection_db) {
+    $stmt = $connection_db->prepare(
+        "
+            SELECT * FROM `pages` WHERE pages.`id` = ?
+        "
+    );
 
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result()->fetch_assoc();
+
+    return $result;
 };
 
 $pages_create = function () use ($connection_db) {

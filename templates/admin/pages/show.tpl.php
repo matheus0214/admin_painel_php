@@ -22,7 +22,7 @@
     </div>
     <div class="col bg-light">
         <h3>Página inicial</h3>
-        <div>Está é a pagina incial do site</div>
+        <div><?php echo $variables["page"]["body"] ?? "" ?></div>
     </div>
 </div>
 
