@@ -44,4 +44,7 @@ if (resolve_path("/admin/pages")) {
     $pages_delete($params[1]);
 
     return header("location: " . preg_replace($regexp, "", $_SERVER["REDIRECT_URL"]) . "/admin/pages");
+} else {
+    $regexp = "/\/admin\/pages.*/";
+    header("location: " . preg_replace($regexp, "", $_SERVER["REDIRECT_URL"]) . "/admin/pages");
 }
