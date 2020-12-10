@@ -9,14 +9,17 @@
         </tr>
     </thead>
     <tbody>
+        <?php foreach ($variables["users"] as $user): ?>
         <tr>
-            <td>1</td>
-            <td>matheus@gmail.com</td>
+            <td><?php echo $user["id"] ?></td>
+            <td><?php echo $user["email"] ?></td>
             <td class="text-right">
-                <a href="admin/users/1/edit" class="btn btn-primary btn-sm">Ver</a>
+                <a href="admin/users/<?php echo $user["id"] ?>" class="btn btn-primary btn-sm">Ver</a>
             </td>
         </tr>
+        <?php endforeach?>
     </tbody>
 </table>
+
 
 <a href="admin/users/create" class="btn btn-secondary">Novo</a>

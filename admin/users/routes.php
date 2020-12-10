@@ -3,7 +3,9 @@
 require __DIR__ . "/db.php";
 
 if (resolve_path("admin/users")) {
-    render("admin/users", "index");
+    $users = $users_all();
+
+    render("admin/users", "index", ["users" => $users]);
 } else if (resolve_path("/admin/users/create")) {
     render("admin/users", "create");
 } else if (resolve_path("/admin/users/(\d+)")) {
