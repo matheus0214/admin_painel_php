@@ -3,12 +3,13 @@
 <form action="" method="POST">
     <div class="form-group">
         <label for="usersEmail">Email</label>
-        <input type="text" required class="form-control" name="email" id="usersEmail">
+        <input type="text" 
+        value="<?php echo $variables["user"]["email"] ?>" required class="form-control" name="email" id="usersEmail">
     </div>
 
     <div class="form-group">
         <label for="usersPassword">Senha</label>
-        <input type="password" required name="password" class="form-control" id="usersPassword" />
+        <input type="password" name="password" class="form-control" id="usersPassword" />
     </div>
 
     <button type="submit" class="btn btn-primary">

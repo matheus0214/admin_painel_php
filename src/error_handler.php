@@ -1,6 +1,6 @@
 <?php
 
-function set_internal_server_error($errno, $errstr, $errfile, $errline)
+function set_internal_server_error($errno = null, $errstr = null, $errfile = null, $errline = null)
 {
     echo $errno . "<br />";
     echo $errstr . "<br />";
@@ -9,6 +9,14 @@ function set_internal_server_error($errno, $errstr, $errfile, $errline)
     http_response_code(500);
     if (!DEBUG) {
         exit;
+    }
+
+    if (is_object(($errno))) {
+        $err = $errno;
+        $errno = $err->getCode();
+        $errstr = $err->getMessage();
+        $errfile = $err->getFile();
+        $errline = $err->getLine();
     }
 
     switch ($errno) {
@@ -33,7 +41,6 @@ function set_internal_server_error($errno, $errstr, $errfile, $errline)
             echo "<strong>Line</strong> [" . $errline . "] " . "<br />";
             break;
     }
-    exit;
 }
 
 set_error_handler("set_internal_server_error");
