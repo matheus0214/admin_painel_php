@@ -76,7 +76,6 @@ $users_update = function ($id) use ($connection_db) {
                 UPDATE `users`
                     SET
                         `users`.`email` = ?,
-                        `users`.`password` = ?
                     WHERE
                         `users`.`id` = ?
             "

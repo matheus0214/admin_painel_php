@@ -17,6 +17,11 @@
     </div>
 
     <div class="form-group">
+        <label for="pageImage">Imagem</label>
+        <input type="file" name="pageImage" id="pageImage" onchange="handleFiles(this.files)">
+    </div>
+
+    <div class="form-group">
         <label for="pagesBody"></label>
         <textarea required name="body" class="form-control" id="pagesBody"></textarea>
     </div>
@@ -29,3 +34,24 @@
 <hr>
 
 <a href="/admin/pages" class="btn btn-secondary">Voltar</a>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+</script>
+<script>
+function handleFiles(files) {
+    const form = new FormData();
+    form.append("file", files[0]);
+
+    $.ajax({
+        url: "./admin/upload/image",
+        method: "POST",
+        data: form,
+        contentType: false,
+        processData: false
+    }).done(function() {
+        console.log("deu certo!");
+    }).fail(function() {
+        console.log("deu errado");
+    });
+}
+</script>

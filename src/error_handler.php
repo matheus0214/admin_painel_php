@@ -6,7 +6,7 @@ function set_internal_server_error($errno = null, $errstr = null, $errfile = nul
     echo $errstr . "<br />";
     echo $errfile . "<br />";
     echo $errline . "<br />";
-    http_response_code(500);
+    // http_response_code(500);
     if (!DEBUG) {
         exit;
     }
