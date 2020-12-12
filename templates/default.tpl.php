@@ -19,15 +19,18 @@
 <body class="d-flex flex-column">
     <div class="header">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <a class="navbar-brand" href="home">Painel Admin</a>
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="admin">Admin</a>
-                </li>
-            </ul>
+            <span>
+                <a class="navbar-brand" href="home">Painel Admin</a>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin">Admin</a>
+                    </li>
+                </ul>
+            </span>
+            <a href="admin/auth/logout" class="btn btn-danger">Sair</a>
         </nav>
     </div>
 
@@ -41,18 +44,20 @@
                         </span>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link active">
-                            Páginas
+                        <a href="admin/pages"
+                            class="nav-link <?php echo resolve_path("/admin/pages/?.*") ? 'active' : '' ?>">
+                            <i class="far fa-file-alt"></i>&nbsp;Páginas
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">
-                            Usuários
+                        <a href="admin/users"
+                            class="nav-link <?php echo resolve_path("/admin/users/?.*") ? 'active' : '' ?>">
+                            <i class="far fa-user"></i>&nbsp;Usuários
                         </a>
                     </li>
                 </ul>
             </div>
-            <div class="col-10" id="content">
+            <div class=" col-10" id="content">
                 <?php include $content?>
             </div>
         </div>
@@ -61,6 +66,9 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>

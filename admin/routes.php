@@ -29,6 +29,8 @@ if (resolve_path("/admin")) {
 
     echo "/upload/" . $name;
 
+} else if (resolve_path("/admin/auth.*")) {
+    require __DIR__ . "/auth/routes.php";
 } else if (resolve_path("/admin/pages.*")) {
     require __DIR__ . "/pages/routes.php";
 } else if (resolve_path("/admin/users.*")) {

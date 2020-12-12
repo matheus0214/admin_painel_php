@@ -20,7 +20,7 @@
 
     <div class="form-group">
         <textarea required name="body">
-        <?php echo $variables["page"]["body"] ?? "" ?>
+        <?php echo htmlentities($variables["page"]["body"]) ?? "" ?>
         </textarea>
     </div>
 

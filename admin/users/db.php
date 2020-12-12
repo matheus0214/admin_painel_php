@@ -48,7 +48,7 @@ $users_create = function () use ($connection_db) {
         flash("Todos os campos devem ser preenchidos", "error");
 
         $regexp = "/\/admin\/users\/create.*/";
-        header("location: " . preg_replace($regexp, "", $_SERVER["REDIRECT_URL"]) . $page_to_return);
+        header("location: " . preg_replace($regexp, "", $_SERVER["REDIRECT_URL"]) . "/admin/users/create.*");
 
         die();
     }
