@@ -39,6 +39,20 @@ $pages_one = function ($id) use ($connection_db) {
     return $result;
 };
 
+$pages_one_url = function ($url) use ($connection_db) {
+    $stmt = $connection_db->prepare(
+        "
+            SELECT * FROM `pages` WHERE pages.`url` = ?
+        "
+    );
+
+    $stmt->bind_param("s", $url);
+    $stmt->execute();
+    $result = $stmt->get_result()->fetch_assoc();
+
+    return $result;
+};
+
 $pages_create = function () use ($connection_db) {
     $data = pages_get_date("admin/pages/create");
 

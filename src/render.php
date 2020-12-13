@@ -10,3 +10,8 @@ function render_with_template(string $template, string $message = "", array $var
 {
     return require __DIR__ . "/../templates/" . $template . "/index.tpl.php";
 }
+
+function render_site($content)
+{
+    return require __DIR__ . "/../templates/index.php";
+}

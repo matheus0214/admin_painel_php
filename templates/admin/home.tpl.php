@@ -1,4 +1,4 @@
-<h3>Bem-vindo ao peinal de gerenciamando</h3>
+<h3>Bem-vindo ao painel de gerenciamento</h3>
 
 <p>Oque você quer fazer agora?</p>
 
